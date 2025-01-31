@@ -11,8 +11,8 @@ fi
 # Check if atleast one arg else guide user
 if [[ "${#}" -lt 1 ]]
 then 
-	echo "Run Script as --> ${0} USER_NAME [COMMENT]..."
-	echo "Create a user with name USER_NAME and comments field of COMMENT"
+	echo "Run Script as --> ${0} USER_NAME [DESCRIPTION]..."
+	echo "Create a user with name USER_NAME and description for field of DESCRIPTION"
 	exit 1
 fi
 
@@ -23,7 +23,7 @@ USER_NAME="${1}"
 
 # If more than one arg, treat as comments
 shift
-COMMENT="${@}"
+DESCRIPTION="${@}"
 
 
 # Create Password
@@ -31,7 +31,7 @@ PASS=$(date +%s%N)
 
 
 # Create user
-useradd -c "${COMMENT}" -m $USER_NAME
+useradd -c "${DESCRIPTION}" -m $USER_NAME
 
 
 # Check if user created or not
