@@ -27,7 +27,7 @@ DESCRIPTION="${@}"
 
 
 # Create Password
-PASS=$(date +%s%N)
+PASS=$(</dev/urandom tr -dc 'A-Za-z0-9' | head -c 10)
 
 
 # Create user
